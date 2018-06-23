@@ -30,7 +30,7 @@ class Calculator extends Component {
       <form>
         <label>
         Net income on latest paycheck
-          <input type="text" name="name" value={this.state.netIncome} onChange={this.handleInputChange}/>
+          <input type="text" name="netIncome" value={this.state.netIncome} onChange={this.handleInputChange}/>
         </label>
         <br />
         <br />
@@ -55,19 +55,19 @@ class Calculator extends Component {
         <p>Enter how much you pay each month for each of the following bills.</p>
         <label>
         Mortgage or Rent
-          <input type="text" name="name" />
+          <input type="text" name="monthlyHousing" value={this.state.monthlyHousing} onChange={this.handleInputChange} />
         </label>
         <br />
         <br />
         <label>
         Insurance Payments
-          <input type="text" name="name" />
+          <input type="text" name="monthlyInsurance" value={this.state.monthlyInsurance} onChange={this.handleInputChange} />
         </label>
         <br />
         <br />
         <label>
         Phone and Utilities
-          <input type="text" name="name" />
+          <input type="text"  name="monthlyUtilities" value={this.state.monthlyUtilities} onChange={this.handleInputChange} />
         </label>
         <br />
         <br />
