@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Calculator from "./components/Calculator.js";
+import Calculator from "../../components/Calculator/Calculator";
 
-const App = () => <Calculator />;
+const UserForm = () => <Calculator />;
 
-export default App;
+export default UserForm;
 
   
