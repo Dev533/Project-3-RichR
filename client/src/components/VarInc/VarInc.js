@@ -20,7 +20,7 @@ class VarInc extends Component {
   submitNewVarIncToCalc = () => {
     let value = this.state.varInc;
 
-    this.props.callbackFromParent.submitNewVarInc(value)
+    this.props.callbackFromParent(value)
 }
 
   render() {

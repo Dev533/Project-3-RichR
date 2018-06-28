@@ -28,17 +28,45 @@ class Calculator extends Component {
     });
   };
 
-  submitNewVarInc = event => {
+  submitNewVarInc = value => {
     var updateVarInc = this.state.variableIncome.slice();    
-    updateVarInc.push("new value");   
+    updateVarInc.push(value);   
     this.setState({variableIncome: updateVarInc})
 } 
 
-submitNewVarExp = event => {
+submitNewVarExp = value => {
     var updateVarExp = this.state.variableExpenses.slice();    
-    updateVarExp.push("new value");   
-    this.setState({variableExpenses: []})
+    updateVarExp.push(value);   
+    this.setState({variableExpenses: updateVarExp})
 } 
+
+sumOfVarInc = () => {
+  if(this.state.variableIncome.length === 0){
+    return 0;
+  }
+  else{
+    let total = 0;
+    for(let key in this.state.variableIncome){
+      
+      total += parseInt(this.state.variableIncome[key]);
+    }
+    return total;
+  }
+}
+sumOfVarExp = () => {
+  if(this.state.variableExpenses.length === 0){
+    return 0;
+  }
+  else{
+    let total = 0;
+    for(let key in this.state.variableExpenses){
+      
+      total += parseInt(this.state.variableExpenses[key]);
+    }
+    return total;
+  }
+}
+
 
   handleSubmit = event => {
     event.preventDefault();
@@ -50,8 +78,7 @@ submitNewVarExp = event => {
       this.state.monthlyUtilities * 12;
     console.log(annualExpenses);
 
-    let retainedEarnings =
-      annualIncome - annualExpenses; /*add other vars here*/
+    let retainedEarnings = annualIncome - annualExpenses + this.sumOfVarInc() - this.sumOfVarExp()
     console.log(retainedEarnings);
 
     this.setState({
