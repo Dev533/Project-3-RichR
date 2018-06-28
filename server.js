@@ -15,6 +15,7 @@ const app = express();
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static("client/build"))
 
 // DB config
 const db = require("./config/keys").mongoURI;
