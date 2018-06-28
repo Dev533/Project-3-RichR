@@ -8,7 +8,7 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import Calculator from "./components/Calculator"
+import Calculator from "./components/Calculator";
 
 import "./App.css";
 
@@ -18,14 +18,14 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
-            <Route exact path="/" component={Landing} />
             <div className="container">
+              <Navbar />
+              <Route exact path="/" component={Landing} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/calculator" component={Calculator} />
+              <Footer />
             </div>
-            <Footer />
           </div>
         </Router>
       </Provider>
