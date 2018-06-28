@@ -9,7 +9,10 @@ class Calculator extends Component {
     monthlyHousing: "",
     monthlyInsurance: "",
     monthlyUtilities: "",
-    retainedEarnings: ""
+    retainedEarnings: "",
+    varInc:[""],
+    varExp:[""],
+    // latestRetainedEarnings: "10,000"
   };
 
   
@@ -30,7 +33,7 @@ class Calculator extends Component {
     console.log(annualIncome)
     let annualExpenses = (this.state.monthlyHousing * 12) + (this.state.monthlyInsurance * 12) + (this.state.monthlyUtilities * 12) 
     console.log(annualExpenses)
-    let retainedEarnings = annualIncome - annualExpenses
+    let retainedEarnings = annualIncome - annualExpenses + /*dynamic var of function that adds up all var income*/ - /*dynamic var of function that adds up all var expenses*/
     console.log(retainedEarnings)
 
     this.setState({
