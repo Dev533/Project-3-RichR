@@ -21,6 +21,7 @@ class VarExp extends Component {
     let value = this.state.varExp;
 
     this.props.callbackFromParent(value)
+    this.setState({varExp: ""})
 }
 
   render() {

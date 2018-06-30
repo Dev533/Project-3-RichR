@@ -2,9 +2,8 @@ import React, { Component } from "react";
 
 class VarInc extends Component {
   state = {
-    varInc: "",
-
-  }
+    varInc: ""
+    }
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change.
@@ -21,6 +20,8 @@ class VarInc extends Component {
     let value = this.state.varInc;
 
     this.props.callbackFromParent(value)
+    this.setState({varInc: ""})
+    
 }
 
   render() {

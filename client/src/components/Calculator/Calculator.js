@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Calculator.css";
 
 import VarExp from "../VarExp";
-import VarInc from "../VarInc"; 
+import VarInc from "../VarInc";
 
 class Calculator extends Component {
   state = {
@@ -13,7 +13,8 @@ class Calculator extends Component {
     monthlyUtilities: "",
     retainedEarnings: "",
     variableIncome: [],
-    variableExpenses: []
+    variableExpenses: [],
+    tempTotal: ""
   };
 
   handleInputChange = event => {
@@ -71,13 +72,34 @@ class Calculator extends Component {
       this.state.monthlyInsurance * 12 +
       this.state.monthlyUtilities * 12;
     console.log(annualExpenses);
+    let retainedEarnings
+  
 
-    let retainedEarnings =
-      annualIncome - annualExpenses + this.sumOfVarInc() - this.sumOfVarExp();
-    console.log(retainedEarnings);
+    if (this.state.tempTotal === "") {
+       retainedEarnings =
+        annualIncome - annualExpenses + this.sumOfVarInc() - this.sumOfVarExp();
+      console.log(retainedEarnings);
+      // this.state.retainedEarnings.push(retainedEarnings);
+    } else {
+       retainedEarnings =
+        this.state.tempTotal +
+        this.sumOfVarInc() -
+        this.sumOfVarExp();
+      console.log(retainedEarnings);
+    }
+    
+    // let retainedEarnings =
+    //   annualIncome - annualExpenses + this.sumOfVarInc() - this.sumOfVarExp();
+    // console.log(retainedEarnings);
 
     this.setState({
-      retainedEarnings
+      retainedEarnings,
+       /*: retainedEarnings,*/
+      netIncome: "",
+      monthlyHousing: "",
+      monthlyInsurance: "",
+      monthlyUtilities: "",
+      tempTotal: retainedEarnings
     });
   };
 
@@ -187,7 +209,7 @@ class Calculator extends Component {
 
             <br />
 
-            <div id="user-total" >${this.state.retainedEarnings}</div>
+            <div id="user-total">${this.state.retainedEarnings}</div>
           </div>
           <div className="col-md-6">
             <VarInc callbackFromParent={this.submitNewVarInc} />
