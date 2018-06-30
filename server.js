@@ -9,10 +9,7 @@ const profile = require("./routes/api/profile");
 const income = require("./routes/api/income");
 const expenses = require("./routes/api/expenses");
 const home = require("./routes/api/home");
-<<<<<<< HEAD
-=======
 const userform = require ("./routes/api/userform")
->>>>>>> rerouted some stuff
 
 const app = express();
 
