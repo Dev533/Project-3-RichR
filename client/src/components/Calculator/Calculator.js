@@ -213,7 +213,17 @@ class Calculator extends Component {
           </div>
           <div className="col-md-6">
             <VarInc callbackFromParent={this.submitNewVarInc} />
+            <ul>
+              {this.state.variableIncome.map(x => 
+                <li>{x}</li>
+              )}
+            </ul>
             <VarExp callbackFromParent={this.submitNewVarExp} />
+            <ul>
+            {this.state.variableExpenses.map(x => 
+                <li>{x}</li>
+              )}
+            </ul>
           </div>
         </div>
       </div>
